@@ -1,0 +1,77 @@
+{
+  "crateId": "CIVIC-ACCESS-01",
+  "contract": "0xB9fbc7623e66e538572C615c013f85a00655A165",
+  "transactions": {
+    "register": "0x582fc5de9bcbb5081e12ef420596efb0494c8eec27eb57b2307f34a2065e44aa",
+    "map": "0x113d8df71e24e82a69237b97a06095e257defb2897c84b74150aa8dba3d5215a"
+  },
+  "final": {
+    "coverage": {
+      "CAPTIONS": [
+        "MEDIA"
+      ],
+      "CONTRAST": [
+        "AUDIT"
+      ],
+      "KEYBOARD": [
+        "AUDIT"
+      ],
+      "REGRESSION": [
+        "TESTS"
+      ]
+    },
+    "gaps": [],
+    "id": "CIVIC-ACCESS-01",
+    "manifest_digest": "8bdb2673d310bbac0719af222a0c0225aebf23531aa402560288e7ef6bbc98c9",
+    "manifest_url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/manifest.json",
+    "minimal_cover": [
+      "AUDIT",
+      "TESTS",
+      "MEDIA"
+    ],
+    "obligations": [
+      {
+        "id": "KEYBOARD",
+        "text": "The release documents complete keyboard navigation for all interactive controls."
+      },
+      {
+        "id": "CONTRAST",
+        "text": "The release reports measured text contrast meeting the documented threshold."
+      },
+      {
+        "id": "CAPTIONS",
+        "text": "The release provides captions or transcripts for audiovisual instructions."
+      },
+      {
+        "id": "REGRESSION",
+        "text": "The release includes a repeatable accessibility regression check."
+      }
+    ],
+    "owner": "0x412d61db014fCdDda12e33b826f63B8ef9AC2E87",
+    "source_digests": [
+      "1c8ca05f58bc4ddbe30bcdf918a45e5fafabc28e0657ee54794b57885a6621a1",
+      "7f1c4783c5a6060e4039c215495c3094d42020fb31164de87c0547a2a77599ff",
+      "235872d9f8930cde4c6e567abcfd3b602af6ae3e03500b54fe9e2c83d6aa840e"
+    ],
+    "sources": [
+      {
+        "id": "AUDIT",
+        "label": "Accessibility audit",
+        "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/audit.txt"
+      },
+      {
+        "id": "TESTS",
+        "label": "Regression report",
+        "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/tests.txt"
+      },
+      {
+        "id": "MEDIA",
+        "label": "Media inventory",
+        "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/media.txt"
+      }
+    ],
+    "state": "COVERED",
+    "title": "Accessible release evidence crate"
+  },
+  "fixtureDisclosure": "The public fixture documents are demonstration records controlled by the repository owner; they are not presented as independent authorities."
+}

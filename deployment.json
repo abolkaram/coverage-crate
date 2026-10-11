@@ -1,0 +1,9 @@
+{
+  "network": "StudioNet",
+  "contractAddress": "0xB9fbc7623e66e538572C615c013f85a00655A165",
+  "deploymentTransaction": "0xfa14b8aafe72eff66c8b2d355c4fe75b66f01156b6d4d7602db210cade00eb9f",
+  "sourceSha256": "3a22cf9cd95c6db27dece2473865ff8d792220f3a746fe4ea9169f96c4e31b16",
+  "sourceCommit": "0a81df210f8bd9206164990578fa11d60aacd12c",
+  "repository": "https://github.com/abolkaram/coverage-crate",
+  "publicSite": "https://coverage-crate.pages.dev/"
+}

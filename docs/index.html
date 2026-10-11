@@ -34,7 +34,7 @@
   <script type="module">
     import { createClient } from "https://esm.sh/genlayer-js@1.1.8";
     import { studionet } from "https://esm.sh/genlayer-js@1.1.8/chains";
-    const ADDRESS="__CONTRACT_ADDRESS__", ENDPOINT="https://studio.genlayer.com/api", ID="CIVIC-ACCESS-01", $=s=>document.querySelector(s);
+    const ADDRESS="0xB9fbc7623e66e538572C615c013f85a00655A165", ENDPOINT="https://studio.genlayer.com/api", ID="CIVIC-ACCESS-01", $=s=>document.querySelector(s);
     let client;
     const status=t=>$("#status").textContent=t;
     async function connect(){if(!window.ethereum)throw Error("Install MetaMask or Rabby.");const [account]=await ethereum.request({method:"eth_requestAccounts"});client=createClient({chain:studionet,endpoint:ENDPOINT,account});$("#wallet").textContent=account.slice(0,6)+"..."+account.slice(-4);return client}
