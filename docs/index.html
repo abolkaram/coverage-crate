@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coverage Crate</title>
+  <meta name="description" content="Pack public evidence into a source-bound semantic coverage receipt on GenLayer.">
+  <style>
+    :root{--ink:#181711;--paper:#e7dfc8;--yellow:#f5bf22;--red:#e6532e;--green:#1d7959;--line:#2a281f;--muted:#756f5f}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:repeating-linear-gradient(0deg,transparent 0 3px,rgba(30,25,13,.08) 4px)}
+    header{height:76px;border-bottom:4px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 4vw;position:relative;z-index:3;background:var(--yellow)}
+    .brand{font-weight:900;letter-spacing:-2px;font-size:clamp(22px,3vw,38px);text-transform:uppercase}.brand small{font:700 10px monospace;letter-spacing:2px;display:block}
+    button,input{font:700 14px monospace}button{border:2px solid var(--ink);background:var(--paper);padding:13px 18px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);text-transform:uppercase}button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}button.primary{background:var(--red);color:white}
+    main{position:relative;z-index:1}.intro{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding:64px 6vw 46px}.intro h1{font-size:clamp(54px,9vw,126px);line-height:.78;letter-spacing:-7px;margin:0;text-transform:uppercase}.intro p{font:16px/1.6 monospace;border-left:8px solid var(--red);padding-left:18px;max-width:520px;align-self:end}
+    .station{border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);background:#222018;color:var(--paper);padding:28px 6vw 38px;position:relative}.station-label{font:700 11px monospace;letter-spacing:3px;color:var(--yellow);margin-bottom:15px}.scanner{display:grid;grid-template-columns:auto 1fr auto;gap:0;max-width:1050px;align-items:stretch}.scanner span{background:var(--yellow);color:var(--ink);padding:16px;font:900 18px monospace;border:2px solid var(--paper);border-right:0}.scanner input{min-width:0;background:#12110e;color:white;border:2px solid var(--paper);padding:16px;outline:none}.scanner button{box-shadow:none;border-color:var(--paper);background:var(--red);color:#fff}
+    .belt{height:230px;background:repeating-linear-gradient(90deg,#343128 0 70px,#222018 70px 76px);border-bottom:12px solid var(--ink);position:relative;overflow:hidden}.belt:after{content:"";position:absolute;left:0;right:0;bottom:23px;border-top:5px dashed var(--yellow)}
+    .crate{position:absolute;left:8vw;bottom:45px;width:210px;height:125px;background:#b88847;border:4px solid var(--ink);transition:left 1.2s cubic-bezier(.2,.8,.2,1),transform .4s;box-shadow:10px 10px 0 rgba(0,0,0,.35)}.crate:before,.crate:after{content:"";position:absolute;background:#d9ad6d}.crate:before{left:50%;top:0;bottom:0;width:20px}.crate:after{left:0;right:0;top:48%;height:18px}.crate strong{position:absolute;z-index:2;background:var(--paper);border:2px solid var(--ink);padding:8px;left:18px;top:20px;font:900 13px monospace;transform:rotate(-3deg)}
+    .crate.registered{left:39vw}.crate.mapped{left:73vw;transform:rotate(1deg)}
+    .controls{display:flex;flex-wrap:wrap;gap:14px;padding:28px 6vw;border-bottom:4px solid var(--ink)}
+    .slip{margin:42px 6vw 80px;display:grid;grid-template-columns:.72fr 1.28fr;border:3px solid var(--ink);background:#f7f2e5;box-shadow:14px 14px 0 var(--ink)}.slip aside{padding:28px;border-right:3px solid var(--ink);background:var(--yellow)}.slip aside h2{font-size:36px;line-height:.9;margin:0 0 24px;text-transform:uppercase}.meta{font:12px/1.8 monospace;word-break:break-all}.results{padding:28px}.results h3{font:900 12px monospace;letter-spacing:3px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.stamp{border:2px solid var(--ink);padding:16px;min-height:100px;font:13px/1.45 monospace}.stamp b{display:block;font-size:17px;margin-bottom:9px}.stamp.ok{border-color:var(--green);box-shadow:inset 0 0 0 4px rgba(29,121,89,.13)}.stamp.gap{border-color:var(--red)}.empty{color:var(--muted);font:15px/1.6 monospace;padding:30px 0}.status{font:700 12px monospace;padding:12px 6vw;background:var(--ink);color:var(--yellow);min-height:40px}
+    @media(max-width:760px){.intro{grid-template-columns:1fr;padding-top:38px}.intro h1{letter-spacing:-4px}.scanner{grid-template-columns:1fr}.scanner span{border-right:2px solid var(--paper)}.belt{height:190px}.crate{width:155px;height:102px}.crate.registered{left:33vw}.crate.mapped{left:58vw}.slip{grid-template-columns:1fr}.slip aside{border-right:0;border-bottom:3px solid var(--ink)}}
+  </style>
+</head>
+<body>
+  <header><div class="brand"><small>DEPOT 05 / STUDIONET</small>Coverage Crate</div><button id="wallet">Link wallet</button></header>
+  <main>
+    <section class="intro"><h1>Pack proof.<br>Find gaps.</h1><p>One manifest enters the depot. Validators fetch every listed record. The contract stamps a complete coverage matrix, the smallest useful evidence set, and every obligation left unpacked.</p></section>
+    <section class="station"><div class="station-label">01 / SCAN A PUBLIC MANIFEST LABEL</div><div class="scanner"><span>HTTPS</span><input id="manifest" value="https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/manifest.json" aria-label="Manifest URL"><button id="scan">Scan label</button></div></section>
+    <section class="belt"><div class="crate" id="crate"><strong id="crateLabel">UNSCANNED</strong></div></section>
+    <div class="status" id="status">DEPOT IDLE / NO AUTHORITATIVE RECEIPT LOADED</div>
+    <section class="controls"><button class="primary" id="register">Register crate</button><button id="map">Map coverage</button><button id="read">Open packing slip</button><a href="https://github.com/abolkaram/coverage-crate" target="_blank"><button>Source ledger</button></a></section>
+    <section class="slip"><aside><h2>Packing<br>Slip</h2><div class="meta" id="meta">Crate: CIVIC-ACCESS-01<br>State: NOT LOADED<br>Contract: pending deployment</div></aside><div class="results"><h3>OBLIGATION STAMPS</h3><div id="results" class="empty">Scan the manifest, register the crate, then map its evidence. Results appear here as a shipping receipt, not a dashboard.</div></div></section>
+  </main>
+  <script type="module">
+    import { createClient } from "https://esm.sh/genlayer-js@1.1.8";
+    import { studionet } from "https://esm.sh/genlayer-js@1.1.8/chains";
+    const ADDRESS="__CONTRACT_ADDRESS__", ENDPOINT="https://studio.genlayer.com/api", ID="CIVIC-ACCESS-01", $=s=>document.querySelector(s);
+    let client;
+    const status=t=>$("#status").textContent=t;
+    async function connect(){if(!window.ethereum)throw Error("Install MetaMask or Rabby.");const [account]=await ethereum.request({method:"eth_requestAccounts"});client=createClient({chain:studionet,endpoint:ENDPOINT,account});$("#wallet").textContent=account.slice(0,6)+"..."+account.slice(-4);return client}
+    async function write(fn,args){const c=client||await connect();status("SUBMITTED / "+fn.toUpperCase());const hash=await c.writeContract({address:ADDRESS,functionName:fn,args,value:0n});status("ACCEPTED / WAITING FOR FINALIZED / "+hash.slice(0,14));const receipt=await c.waitForTransactionReceipt({hash,status:"FINALIZED",retries:180,interval:5000});if(receipt?.resultName&&receipt.resultName!=="MAJORITY_AGREE")throw Error("Transaction did not reach consensus.");status("FINALIZED / "+fn.toUpperCase()+" / "+hash);return hash}
+    async function read(){const c=client||createClient({chain:studionet,endpoint:ENDPOINT});const data=await c.readContract({address:ADDRESS,functionName:"get_crate",args:[ID]});$("#crate").className="crate "+(data.state==="PACKED"?"registered":"mapped");$("#crateLabel").textContent=data.id+" / "+data.state;$("#meta").innerHTML=`Crate: ${data.id}<br>State: ${data.state}<br>Minimum cover: ${(data.minimal_cover||[]).join(", ")||"pending"}<br>Manifest digest: ${data.manifest_digest}`;const rows=data.obligations.map(o=>`<div class="stamp ${(data.coverage?.[o.id]||[]).length?"ok":"gap"}"><b>${o.id}</b>${o.text}<br><br>Sources: ${(data.coverage?.[o.id]||[]).join(", ")||"UNPACKED"}</div>`).join("");$("#results").className="grid";$("#results").innerHTML=rows;status("READ / AUTHORITATIVE STATE "+data.state);return data}
+    $("#wallet").onclick=()=>connect().catch(e=>status("ERROR / "+e.message);
+    $("#scan").onclick=()=>{$("#crateLabel").textContent="CIVIC-ACCESS-01 / LABEL SCANNED";status("LOCAL PREVIEW / NOTHING WRITTEN ON-CHAIN")};
+    $("#register").onclick=async()=>{try{await write("register",[$("#manifest").value.trim()]);$("#crate").classList.add("registered");await read()}catch(e){status("ERROR / "+e.message)}};
+    $("#map").onclick=async()=>{try{await write("map_coverage",[ID]);$("#crate").classList.add("mapped");await read()}catch(e){status("ERROR / "+e.message)}};
+    $("#read").onclick=()=>read().catch(e=>status("ERROR / "+e.message));
+  </script>
+</body>
+</html>

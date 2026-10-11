@@ -1,0 +1,15 @@
+{
+  "crate_id": "CIVIC-ACCESS-01",
+  "title": "Accessible release evidence crate",
+  "obligations": [
+    {"id": "KEYBOARD", "text": "The release documents complete keyboard navigation for all interactive controls."},
+    {"id": "CONTRAST", "text": "The release reports measured text contrast meeting the documented threshold."},
+    {"id": "CAPTIONS", "text": "The release provides captions or transcripts for audiovisual instructions."},
+    {"id": "REGRESSION", "text": "The release includes a repeatable accessibility regression check."}
+  ],
+  "sources": [
+    {"id": "AUDIT", "label": "Accessibility audit", "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/audit.txt"},
+    {"id": "TESTS", "label": "Regression report", "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/tests.txt"},
+    {"id": "MEDIA", "label": "Media inventory", "url": "https://raw.githubusercontent.com/abolkaram/coverage-crate/main/fixtures/media.txt"}
+  ]
+}

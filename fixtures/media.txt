@@ -1,0 +1,1 @@
+Media Inventory. Every instructional video has synchronized captions and a linked text transcript. Audio-only guidance has a transcript beside the player. The inventory lists the public URL and language for each alternative.

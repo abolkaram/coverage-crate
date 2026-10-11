@@ -1,0 +1,1 @@
+Accessibility Audit 2026-10. Every interactive control in the release was traversed by keyboard in documented focus order. Measured text contrast is at least 4.8:1 for ordinary copy and 3.2:1 for large labels. The audit records browser, viewport, tool version, and reviewer initials.

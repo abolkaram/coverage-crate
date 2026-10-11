@@ -1,0 +1,1 @@
+Regression Report. The CI accessibility job runs on every release candidate. It checks focus visibility, keyboard reachability, landmark order, accessible names, and contrast thresholds. The report includes the exact command, commit, timestamp, and failing-selector output.
